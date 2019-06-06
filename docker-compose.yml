@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  node:
+    image: node:10
+    user: node
+    working_dir: /usr/src/apollo-federation-cookbook
+    environment:
+      - NODE_ENV=test
+    command: yarn run start
+    volume:
+      - .:/usr/src/apollo-federation-cookbook
+    ports:
+      - "4000:4000"
+
+  postgresql:
+    image: postgres:10.8
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+      - postgresql:/var/lib/postgresql
+    volumes:
+
+volumes:
+  postgresql:

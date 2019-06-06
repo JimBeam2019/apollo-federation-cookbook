@@ -1,0 +1,14 @@
+{
+  "name": "apollo-federation-cookbook",
+  "version": "1.0.0",
+  "description": "A cookbook of Apollo Federation",
+  "main": "index.js",
+  "repository": "https://github.com/JimBeam2019/apollo-federation-cookbook.git",
+  "author": "JimBeam2019 <bingking68@hotmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@apollo/federation": "^0.6.1",
+    "apollo-server": "^2.6.1",
+    "graphql": "^14.3.1"
+  }
+}

@@ -5,6 +5,8 @@ ENV NODE_ENV=$NODE_ENV
 
 WORKDIR /usr/src/apollo-federation-cookbook
 
+RUN apt-get update && apt-get install -y procps vim
+
 COPY package.json yarn.lock ./
 
 RUN set -ex; \

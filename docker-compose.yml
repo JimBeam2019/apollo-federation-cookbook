@@ -8,7 +8,7 @@ services:
     environment:
       - NODE_ENV=test
     command: yarn run start
-    volume:
+    volumes:
       - .:/usr/src/apollo-federation-cookbook
     ports:
       - "4000:4000"
@@ -20,8 +20,19 @@ services:
       - "5432:5432"
     environment:
       POSTGRES_PASSWORD: postgres
-      - postgresql:/var/lib/postgresql
     volumes:
+      - postgresql:/var/lib/postgresql
+
+  dynamodb:
+    image: amazon/dynamodb-local
+    environment:
+      - ./Djava.library.path=./DynamoDBLocal_lib
+    ports:
+      - "8000:8000"
+    volumes:
+      - dynamodb:/usr/data/dynamodb
+    command: ["-jar", "DynamoDBLocal.jar", "-sharedDb", "-dbPath", "/usr/data/dynamodb/"]
 
 volumes:
-  postgresql:
+  postgresql: 
+  dynamodb:

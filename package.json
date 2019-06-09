@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "@apollo/federation": "^0.6.1",
+    "@apollo/gateway": "^0.6.5",
     "apollo-server": "^2.6.1",
     "graphql": "^14.3.1"
   },
@@ -15,16 +16,21 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
+    "concurrently": "^4.1.0",
     "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^4.3.0",
     "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-react": "^7.13.0",
     "eslint-watch": "^5.1.2",
     "jest": "^24.8.0",
+    "lerna": "^3.14.1",
     "nodemon": "^1.19.1"
   },
   "scripts": {
     "test": "jest",
-    "start": "npx nodemon graphql.js"
+    "start": "npx nodemon graphql.js --exec babel-node"
   }
 }

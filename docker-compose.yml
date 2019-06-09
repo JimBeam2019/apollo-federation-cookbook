@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  node:
+    image: node:10
+    user: node
+    working_dir: /usr/src/apollo-federation-cookbook
+    environment:
+      - NODE_ENV=test
+    command: yarn run start
+    volumes:
+      - .:/usr/src/apollo-federation-cookbook
+    ports:
+      - "4000:4000"
+
+  postgresql:
+    image: postgres:10.8
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgresql:/var/lib/postgresql
+
+  dynamodb:
+    image: amazon/dynamodb-local
+    environment:
+      - ./Djava.library.path=./DynamoDBLocal_lib
+    ports:
+      - "8000:8000"
+    volumes:
+      - dynamodb:/usr/data/dynamodb
+    command: ["-jar", "DynamoDBLocal.jar", "-sharedDb", "-dbPath", "/usr/data/dynamodb/"]
+
+volumes:
+  postgresql: 
+  dynamodb:

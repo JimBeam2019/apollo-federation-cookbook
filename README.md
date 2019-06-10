@@ -1,7 +1,7 @@
 # apollo-federation-cookbook
 A cookbook of Apollo Federation
 
-# Userful Extensions of Visual Studio Code
+# Useful Extensions of Visual Studio Code
 
 1. Apollo GraphQL
 2. Docker

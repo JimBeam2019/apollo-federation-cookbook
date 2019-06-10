@@ -2,7 +2,7 @@
   "name": "apollo-federation-cookbook",
   "version": "1.0.0",
   "description": "A cookbook of Apollo Federation",
-  "main": "index.js",
+  "main": "graphql.js",
   "repository": "https://github.com/JimBeam2019/apollo-federation-cookbook.git",
   "author": "JimBeam2019 <bingking68@hotmail.com>",
   "license": "MIT",
@@ -31,6 +31,8 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "npx nodemon graphql.js --exec babel-node"
+    "start": "npx nodemon graphql.js --exec babel-node",
+    "start-services": "concurrently \"npm:start-service-*\"",
+    "postinstall": "lerna bootstrap"
   }
 }
